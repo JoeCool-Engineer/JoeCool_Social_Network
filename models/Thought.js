@@ -10,6 +10,7 @@ const thoughtSchema = new Schema(
       required: true,
       maxlength: 280,
       minlength: 1,
+      trim: true,
     },
     createdAt: {
       type: Date,
@@ -32,6 +33,35 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
+
+// const reactionSchema = new Schema(
+//   {
+//     reactionId: {
+//       default: Schema.Types.ObjectId,
+//     },
+//     reactionBody: {
+//       type: String,
+//       required: true,
+//       maxLength: 280,
+//     },
+//     username: {
+//       type: String,
+//       required: true,
+//     },
+//     createdAt: {
+//       type: Date,
+//       default: Date.now,
+//     },
+//   },
+//   {
+//     toJSON: {
+//       getters: true,
+//       virtuals: true,
+//     },
+//   }
+// );
+
+
 
 //  convert our thoughtSchema into a Model, using mongoose.model(modelName, schema) format
 const Thought = model('thought', thoughtSchema);
